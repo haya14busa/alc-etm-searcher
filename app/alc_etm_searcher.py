@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# FILE: app/database.py
+# FILE: app/alc_etm_searcher.py
 # AUTHOR: haya14busa
 # License: MIT license
 #
@@ -25,36 +25,37 @@
 #
 #=============================================================================
 
-from pymongo import Connection
-import os
-from urllib.parse import urlsplit
+from app.database import WordDB
+from app.nlp import NLTK
 
 
-class WordDB(object):
-    ''' Etymology Word DataBase '''
-    def __init__(self, db_name):
-        self.db = self.connect2mongodb(db_name)
+class ALCEtmSearcher(object):
+    def __init__(self):
+        self.db = WordDB('mydict')
+        self.n = NLTK()
 
-    def connect2mongodb(self, db_name=None):
-        MONGO_URL = os.environ.get('MONGOHQ_URL', None)
-        if MONGO_URL:  # For heroku
-            c = Connection(host=MONGO_URL, port=27017)
-            parsed = urlsplit(MONGO_URL)
-            db_name = parsed.path[1:]
-            return c[db_name]
-        else:
-            c = Connection(host='localhost', port=27017)
-            return c[db_name]
-
-    def find_with_unum(self, word, field):
-        # db = connect2mongodb('mydict')
-        return self.db.words.find_one({field: word}, {'alc_etm.unum': 1})
+    def find_word_with_unum(self, word):
+        ''' Aggressively find word data of ALC etmology dictionary with NLP
+        1. word itself
+        2. lemmatize
+        3. Porter stemmer with lemma
+        4. Porter stemmer with stem
+        5. Lancaster stemmer with stem
+        '''
+        lemma = self.n.lemmatizer(word)
+        p_stem = self.n.porter_stemmer(word)
+        l_stem = self.n.lancaster_stemmer(word)
+        word_data = self.db.find_with_unum(word, 'lemma') \
+            or self.db.find_with_unum(lemma, 'lemma') \
+            or self.db.find_with_unum(p_stem, 'lemma') \
+            or self.db.find_with_unum(p_stem, 'stem') \
+            or self.db.find_with_unum(l_stem, 'stem')
+        return word_data
 
 
 def main():
-    db = WordDB('mydict')
-    print(db.find_in_alc_etm('polish', 'lemma'))
-    print(db.find_in_alc_etm('polishing', 'lemma'))
+    alc_etm_searcher = ALCEtmSearcher()
+    print(alc_etm_searcher.find_word_with_unum('polished'))
 
 if __name__ == '__main__':
     main()
