@@ -50,9 +50,10 @@ def page_not_found(e):
 # FIXME: maybe there are more clever ways
 try:
     searcher = ALCEtmSearcher()
-except:
+except Exception as e:
     # To show index page even if searcher does not work
-    pass
+    # FIXME: does it really work?
+    app.logger.error(e)
 
 
 @app.route('/send_word', methods=['GET', 'POST'])
