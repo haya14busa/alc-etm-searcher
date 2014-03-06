@@ -1,7 +1,7 @@
 <form method="post" action="{{ url_for('send_word') }}">
-    <input type="text" name="word" value="{{ word }}" placeholder="Search word">
+    <input type="text" name="search_word" value="{{ search_word }}" placeholder="Search word">
     <input type="submit" value="Search">
 </form>
-{% if is_found and word %}
-    <p> {{ word }} is not found.  </p>
+{% if is_found and search_word %}
+    <p> {{ search_word }} is not found.  </p>
 {% endif %}

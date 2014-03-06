@@ -33,11 +33,11 @@ from app.alc_etm_searcher import ALCEtmSearcher
 
 @app.route('/')
 def index():
-    word = request.args.get('word', '')
+    search_word = request.args.get('search_word', '')
     is_found = request.args.get('is_found', True)
     return render_template('index.html',
                            title='アルク語源辞典Searcher',
-                           word=word,
+                           search_word=search_word,
                            is_found=is_found)
 
 
@@ -46,17 +46,30 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-searcher = ALCEtmSearcher()
+# Create an instance of ALCEtmSearcher
+# FIXME: maybe there are more clever ways
+try:
+    searcher = ALCEtmSearcher()
+except:
+    # To show index page even if searcher does not work
+    pass
 
 
-@app.route('/send_word', methods=['POST'])
+@app.route('/send_word', methods=['GET', 'POST'])
 def send_word():
-    word = request.form['word']
-    if word == '':
+    # Get word: Support both GET and POST methods
+    search_word = request.values.get('search_word', '')
+    # Early Return if search_word is empty
+    if search_word == '':
         return redirect(url_for('index'))
-    word_data = searcher.find_word_with_unum(word)
+    # Get word data from database
+    word_data = searcher.find_word_with_unum(search_word)
     if word_data:
+        # Redirect to ALC page if data is found
         alc_etm_url = 'http://home.alc.co.jp/db/owa/etm_sch?unum={unum}&stg=2'
         return redirect(alc_etm_url.format(unum=word_data['alc_etm']['unum']))
     else:
-        return redirect(url_for('index', is_found=False, word=word))
+        # Redirect to index if data is not found
+        return redirect(url_for('index',
+                                is_found=False,
+                                search_word=search_word))
