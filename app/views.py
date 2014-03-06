@@ -26,14 +26,37 @@
 #=============================================================================
 
 from app import app
-from flask import render_template
+from flask import render_template, request, redirect, url_for
+
+from app.alc_etm_searcher import ALCEtmSearcher
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', title='Happy Vimming!')
+    word = request.args.get('word', '')
+    is_found = request.args.get('is_found', True)
+    return render_template('index.html',
+                           title='アルク語源辞典Searcher',
+                           word=word,
+                           is_found=is_found)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+searcher = ALCEtmSearcher()
+
+
+@app.route('/send_word', methods=['POST'])
+def send_word():
+    word = request.form['word']
+    if word == '':
+        return redirect(url_for('index'))
+    word_data = searcher.find_word_with_unum(word)
+    if word_data:
+        alc_etm_url = 'http://home.alc.co.jp/db/owa/etm_sch?unum={unum}&stg=2'
+        return redirect(alc_etm_url.format(unum=word_data['alc_etm']['unum']))
+    else:
+        return redirect(url_for('index', is_found=False, word=word))
