@@ -83,7 +83,7 @@ class ALCEtmSearcher(object):
                         ))
                     continue
                 # Try to find word in DataBase
-                word_data = self.find_word_with_unum(word)
+                word_data = self.find_word_with_unum(word.lower())
                 if word_data:
                     linked_word[word] = word_data['alc_etm']['unum']
                     word_list.append(
