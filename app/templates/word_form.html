@@ -1,4 +1,4 @@
-<div class="search_word_form col-xs-8 col-xs-offset-2">
+<div class="search_word_form col-xs-12 col-sm-6 col-sm-offset-3">
     <form class="input-group" method="post" action="{{ url_for('send_word') }}">
         <input class="form-control"
                type="text"
@@ -12,4 +12,4 @@
     {% if is_found and search_word %}
         <p> {{ search_word }} は見つかりませんでした。</p>
     {% endif %}
-</div><!-- /div.search_word_form.col-xs-6 -->
+</div><!-- /div.search_word_form.col-sm-6 -->
