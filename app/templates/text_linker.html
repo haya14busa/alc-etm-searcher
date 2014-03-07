@@ -9,17 +9,17 @@
                       name="search_text"
                       rows=5
                       style="display:block; margin:0 auto; width:100%;"
-                      placeholder="Search text"></textarea>
+                      placeholder="Input text"></textarea>
             <div style="margin:0 auto; width:100%;">
-                <button class="btn btn-default" type="submit" style="width:100%;margin:15px 0;">Generate</button>
+                <button class="btn-shadow btn btn-default" type="submit" style="width:100%;margin:15px 0;">Generate</button>
             </div>
         </form>
     </div><!-- /div.search_word_form.col-xs-8.col-xs-offset-2 -->
 </div>
-<div class="row">
-    <h3 class="text-center">リンクテキスト</h3>
-    <div class="link_text col-xs-8 col-xs-offset-2">
-            <p>{{ link_text or 'リンク結果がここに表示されます'}}</p>
+<div class="row link_text">
+    <div class="col-xs-8 col-xs-offset-2">
+        <h3 class="text-center">リンクテキスト</h3>
+        <p>{{ link_text or 'アルク語源辞典へリンクしたテキストがここに表示されます'}}</p>
     </div>
 </div>
 {% endblock %}

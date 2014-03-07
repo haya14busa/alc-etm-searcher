@@ -1,3 +1,6 @@
+body {
+  font-size: 16px;
+}
 #title {
   margin: 100px 0 50px;
 }
@@ -7,4 +10,19 @@
 }
 .search_word_form p {
   margin-top: 20px;
+}
+.link_text h3 {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  box-shadow: rgba(255,255,255,0.3) 0 1px 0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+textarea {
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  border-radius: 5px;
+}
+.btn-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
