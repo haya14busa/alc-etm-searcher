@@ -1,12 +1,15 @@
-<div class="search_word_form">
-    <form method="post" action="{{ url_for('send_word') }}">
-        <input type="text"
+<div class="search_word_form col-xs-8 col-xs-offset-2">
+    <form class="input-group" method="post" action="{{ url_for('send_word') }}">
+        <input class="form-control"
+               type="text"
                name="search_word"
                value="{{ search_word }}"
                placeholder="Search word">
-        <input type="submit" value="Search">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Search</button>
+        </span>
     </form>
     {% if is_found and search_word %}
         <p> {{ search_word }} は見つかりませんでした。</p>
     {% endif %}
-</div>
+</div><!-- /div.search_word_form.col-xs-6 -->

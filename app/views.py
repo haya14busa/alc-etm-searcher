@@ -36,7 +36,6 @@ def index():
     search_word = request.args.get('search_word', '')
     is_found = request.args.get('is_found', True)
     return render_template('index.html',
-                           title='アルク語源辞典Searcher',
                            search_word=search_word,
                            is_found=is_found)
 

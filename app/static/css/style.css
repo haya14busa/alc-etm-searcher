@@ -1,0 +1,10 @@
+#title {
+  margin: 100px 0 50px;
+}
+#title a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+.search_word_form p {
+  margin-top: 20px;
+}

@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
-{% block title %} {{ title }} {% endblock %}
+{% block title %} アルク語源辞典Searcher {% endblock %}
 {% block body %}
-<h1>{{ title }}</h1>
-{% include "word_form.html" %}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1 id="title" class="text-center"><a href="{{ url_for('index') }}">{{ self.title() }}</a></h1>
+        {% include "word_form.html" %}
+    </div><!-- /div.col-md-8.col-md-offset-2 -->
+</div>
 {% endblock %}
