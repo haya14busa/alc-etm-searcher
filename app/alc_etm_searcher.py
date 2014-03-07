@@ -44,6 +44,7 @@ class ALCEtmSearcher(object):
         4. Porter stemmer with stem
         5. Lancaster stemmer with stem
         '''
+        word = word.lower()
         lemma = self.n.lemmatizer(word)
         p_stem = self.n.porter_stemmer(word)
         l_stem = self.n.lancaster_stemmer(word)
