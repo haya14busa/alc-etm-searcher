@@ -33,6 +33,8 @@ class ALCEtmSearcher(object):
     def __init__(self):
         self.db = WordDB('mydict')
         self.n = NLTK()
+        self.url_unum = \
+            'http://home.alc.co.jp/db/owa/etm_sch?unum={unum}&stg=2'
 
     def find_word_with_unum(self, word):
         ''' Aggressively find word data of ALC etmology dictionary with NLP
@@ -52,10 +54,44 @@ class ALCEtmSearcher(object):
             or self.db.find_with_unum(l_stem, 'stem')
         return word_data
 
+    def text_linker(self, text, is_newtab=None):
+        # link_format = '<a href="{url}" target="_blank">{w}</a>'.format(
+        target = 'target="_blank"' if is_newtab else ''
+        link_format = '<a href="{url}" {target}>{w}</a>'.format(
+            url=self.url_unum, w='{w}', target=target)
 
-def main():
-    alc_etm_searcher = ALCEtmSearcher()
-    print(alc_etm_searcher.find_word_with_unum('polished'))
+        # Cache linked word not to look into database more hantwice
+        # {word: unum}
+        # NOTE: Should it be with MongoDB or something?
+        linked_word = {}
 
-if __name__ == '__main__':
-    main()
+        sentences = text.splitlines()
+        sentence_list = []
+        for sentence in sentences:
+            word_list = []
+            for word in self.n.tokenize(sentence):
+                # Filter stopwords
+                if len(word) < 3 or word.lower() in self.n.stopwords:
+                    word_list.append(word)
+                    continue
+                # Not to look into database twice with the same word
+                if word in linked_word:
+                    word_list.append(
+                        link_format.format(
+                            unum=linked_word[word],
+                            w=word
+                        ))
+                    continue
+                # Try to find word in DataBase
+                word_data = self.find_word_with_unum(word)
+                if word_data:
+                    linked_word[word] = word_data['alc_etm']['unum']
+                    word_list.append(
+                        link_format.format(
+                            unum=word_data['alc_etm']['unum'],
+                            w=word
+                        ))
+                else:
+                    word_list.append(word)
+            sentence_list.append(' '.join(word_list))
+        return '<br>'.join(sentence_list)

@@ -29,6 +29,7 @@
 
 from nltk.corpus import stopwords
 from nltk import stem
+from nltk import tokenize
 
 
 class NLTK(object):
@@ -46,6 +47,9 @@ class NLTK(object):
 
     def lemmatizer(self, word):
         return self._lemmatizer.lemmatize(word)
+
+    def tokenize(self, sentence):
+        return tokenize.wordpunct_tokenize(sentence)
 
 
 def main():

@@ -27,6 +27,7 @@
 
 from app import app
 from flask import render_template, request, redirect, url_for
+from flask import Markup
 
 from app.alc_etm_searcher import ALCEtmSearcher
 
@@ -65,11 +66,22 @@ def send_word():
     # Get word data from database
     word_data = searcher.find_word_with_unum(search_word)
     if word_data:
-        # Redirect to ALC page if data is found
-        alc_etm_url = 'http://home.alc.co.jp/db/owa/etm_sch?unum={unum}&stg=2'
-        return redirect(alc_etm_url.format(unum=word_data['alc_etm']['unum']))
+        # Redirect to ALC page if word data is found
+        return redirect(searcher.url_unum.format(
+            unum=word_data['alc_etm']['unum']))
     else:
-        # Redirect to index if data is not found
+        # Redirect to index if word data is not found
         return redirect(url_for('index',
                                 is_found=False,
                                 search_word=search_word))
+
+
+@app.route('/text_linker', methods=['GET', 'POST'])
+def text_linker():
+    if request.method == 'GET':
+        return render_template('text_linker.html', link_text=None)
+
+    if request.method == 'POST':
+        text = request.form['search_text']
+        link_text = searcher.text_linker(text, is_newtab=False)
+        return render_template('text_linker.html', link_text=Markup(link_text))
