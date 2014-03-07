@@ -29,7 +29,7 @@ from app import app
 
 
 def main():
-    app.debug = True
+    # app.debug = True
     app.run()
 
 
