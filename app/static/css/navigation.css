@@ -1,0 +1,29 @@
+.navbar {
+  margin-top: 10px;
+}
+.navbar-nav>li>a {
+  margin: 0px 10px;
+  padding: 10px 20px;
+  color: #2c3e50;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.navbar-nav>li>a:hover,
+.navbar-nav>li>a:focus {
+  border-bottom: 1px solid #3498db;
+  background: None;
+}
+@media (max-width: 767px) {
+  .navbar-nav {
+    position: relative;
+    float: left;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+}
+@media screen and (max-width: 480px) {
+  .navbar-nav>li>a {
+    margin: 0px 5px;
+    padding: 10px 10px;
+  }
+}
