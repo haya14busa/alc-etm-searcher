@@ -28,6 +28,7 @@
 from app import app
 from flask import render_template, request, redirect, url_for
 from flask import Markup
+from markdown import markdown as convert_markdown
 
 from app.alc_etm_searcher import ALCEtmSearcher
 
@@ -90,3 +91,8 @@ def text_linker():
         text = request.form['search_text']
         link_text = searcher.text_linker(text, is_newtab=False)
         return render_template('text_linker.html', link_text=Markup(link_text))
+
+
+@app.template_filter('markdown')
+def filter_markdown(s):
+    return Markup(convert_markdown(s))

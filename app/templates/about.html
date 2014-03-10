@@ -3,8 +3,13 @@
 {% block body %}
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h1 id="title" class="text-center">このサイトについて</h1>
-        <p>About Alc etymology searcher</p>
+
+<!-- Markdown Contents -->
+{% filter markdown %}
+{% include "md/about.md" %}
+{% endfilter %}
+<!-- /Markdown Contents -->
+
     </div><!-- /div.col-md-8.col-md-offset-2 -->
 </div>
 {% endblock %}
