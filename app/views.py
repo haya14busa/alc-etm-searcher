@@ -28,9 +28,12 @@
 from app import app
 from flask import render_template, request, redirect, url_for
 from flask import Markup
-from markdown import markdown as convert_markdown
+from markdown2 import markdown as convert_markdown
 
 from app.alc_etm_searcher import ALCEtmSearcher
+
+# Jinja2 config
+app.jinja_env.autoescape = False
 
 
 @app.route('/')
@@ -95,4 +98,4 @@ def text_linker():
 
 @app.template_filter('markdown')
 def filter_markdown(s):
-    return Markup(convert_markdown(s))
+    return Markup(convert_markdown(s, extras=['fenced-code-blocks']))

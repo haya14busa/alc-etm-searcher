@@ -1,10 +1,11 @@
 Flask==0.10.1
 Jinja2==2.7.2
-Markdown==2.4
 MarkupSafe==0.18
 PyYAML==3.10
+Pygments==1.6
 Werkzeug==0.9.4
 gunicorn==18.0
 itsdangerous==0.23
+markdown2==2.2.1
 ./nltk-3.0a3/
 pymongo==2.6.3
