@@ -195,6 +195,7 @@ textarea {
   }
   .author-card .icon-image {
     width: 80px;
+    height: 80px;
   }
   .author-card .name {
     font-size: 28px;
