@@ -49,6 +49,15 @@ Link: [アルク語源辞典テキストリンカー](http://alc-etm-searcher.he
 
 上記URLのテキストエリアに任意の長さのテキストを入力し、`Generate`ボタンを押すと、[語源辞典](http://home.alc.co.jp/db/owa/etm_sch)にマッチするワードだけ語源辞典のページへリンクしたHTMLのテキストを吐き出します。
 
+### 例
+テキストエリアに文章を入力し...
+
+![text_linker_before]({{ url_for('static', filename='images/text_linker_before.png') }})
+
+`Generate`ボタンを押すと語源辞典へリンクされたテキストが表示されます
+
+![text_linker_after]({{ url_for('static', filename='images/text_linker_after.png') }})
+
 ### 何が便利なの?
 
 [語源辞典：スペースアルク](http://home.alc.co.jp/db/owa/etm_sch)の語源辞典のデータはすべての単語を網羅しているわけではなく、語源があるはずなのにマッチしないということが多々あり、毎回検索を試してはマッチせず落胆するということがあります。
