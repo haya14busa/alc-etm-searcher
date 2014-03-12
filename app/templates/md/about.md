@@ -1,68 +1,59 @@
 このサイトについて
 ==================
 
-I'm writing my templates in *Markdown!*
-
-[語源辞典：スペースアルク](http://home.alc.co.jp/db/owa/etm_sch)
+このサイトは[スペースアルク](http://www.alc.co.jp/)の[語源辞典](http://home.alc.co.jp/db/owa/etm_sch)の検索機能を拡張し、より柔軟に使えるようにした**非公式**サイトです。
 
 
-http://home.alc.co.jp/db/owa/etm_sch
+語源辞典自体のデータの著作権は一切保持せず、辞書データは監修者の[松澤喜好](http://www.alc.co.jp/lec-profile/matsuzawa/)氏に帰属しており、このサイトからはリンクを生成、またはリダイレクトするだけとなっております。
 
-Hightlight Code
----------------
 
-HTML
+このサイトはより快適に語源辞典を使用できるように拡張し、もっとたくさんの学習者が語源について興味を持ち、簡単に勉強できるようにすることを目指しています。
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-</body>
-</html>
-```
 
-Python
+検索機能の拡張について
+----------------------
 
-```python
-def hello_vimmer():
-  for i in range(10):
-    print('Happy Vimming')
-```
+Link: [アルク語源辞典Searcher](http://alc-etm-searcher.herokuapp.com/)
 
-Vim
+[語源辞典：スペースアルク](http://home.alc.co.jp/db/owa/etm_sch)の検索機能はおそらく前方一致検索しか実装されておらずあいまい検索や、サジェスト機能を持っていません。
 
-```vim
-" Utilities for list.
+例えば`polish`には正しくマッチしますが、`polished`,`polishing`など本来ならマッチしたほうがより便利な検索語でもマッチせず、「もしかして: polish」などと言ったサジェスト機能もありません。
 
-let s:save_cpo = &cpo
-set cpo&vim
 
-function! s:pop(list)
-  return remove(a:list, -1)
-endfunction
+そこでこのサイトではその機能を改善し`polish`,`polished`,`polishing`などはすべて`polish`にマッチするように実装し、同語幹、同語源の検索ワードには貪欲にマッチするようになっています。
 
-function! s:push(list, val)
-  call add(a:list, a:val)
-  return a:list
-endfunction
+(よってまれに全く関係ない単語のページに飛んでしまう場合がありますがご了承ください。)
 
-function! s:shift(list)
-  return remove(a:list, 0)
-endfunction
 
-function! s:unshift(list, val)
-  return insert(a:list, a:val)
-endfunction
+ブックマークレット機能
+----------------------
 
-function! s:cons(x, xs)
-  return [a:x] + a:xs
-endfunction
+TODO: あとで実装します。
 
-function! s:conj(xs, x)
-  return a:xs + [a:x]
-endfunction
-```
+ブックマークレットによってわざわざ当サイトにアクセスせずとも、手軽に検索機能を使うことができるようになります。
+
+
+一括テキストリンカー
+--------------------
+
+Link: [アルク語源辞典テキストリンカー](http://alc-etm-searcher.herokuapp.com/text_linker)
+
+また、当サイトではテキストからの一括検索機能を提供しています。
+
+上記URLのテキストエリアに任意の長さのテキストを入力し、`Generate`ボタンを押すと、[語源辞典](http://home.alc.co.jp/db/owa/etm_sch)にマッチするワードだけ語源辞典のページへリンクしたHTMLのテキストを吐き出します。
+
+### 何が便利なの?
+
+[語源辞典：スペースアルク](http://home.alc.co.jp/db/owa/etm_sch)の語源辞典のデータはすべての単語を網羅しているわけではなく、語源があるはずなのにマッチしないということが多々あり、毎回検索を試してはマッチせず落胆するということがあります。
+
+そこで当サイトの[アルク語源辞典テキストリンカー](http://alc-etm-searcher.herokuapp.com/text_linker)を利用して学習したい英文を入力すれば、予め一括で語源辞典のデータベースにマッチする単語だけをリンクすることができ、辞書を引く時間を大幅に時間を短縮しながら学習することが出来ます。
+
+
+Author
+----------------
+
+haya14busa
+
+- Github: [haya14busa](https://github.com/haya14busa)
+- Twitter: [haya14busa](https://twitter.com/haya14busa)
+- Blog: [haya14busa « haya14busa's memo](http://haya14busa.com/)
