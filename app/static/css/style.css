@@ -78,3 +78,133 @@ textarea {
 .btn-shadow {
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
+/* Social Flat */
+.social-flat {
+  font-family: 'Josefin Sans', sans-serif;
+}
+.social-flat:after {
+  content: ".";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+.social-flat ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.social-flat ul li {
+  display: block;
+  width: 180px;
+  height: 90px;
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  color: #f8f8f8;
+  position: relative;
+}
+.social-flat ul li a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  line-height: 80px;
+  color: #f8f8f8;
+  font-size: 26px;
+}
+.social-flat .icon {
+  background-color: #2c3e50;
+}
+.social-flat .icon:hover {
+  background-color: #3a5169;
+}
+.social-flat .github {
+  background-color: #2c3e50;
+}
+.social-flat .github:hover {
+  background-color: #3a5169;
+}
+.social-flat .twitter {
+  background-color: #3498db;
+}
+.social-flat .twitter:hover {
+  background-color: #48a2df;
+}
+.social-flat .blog {
+  background-color: #2ecc71;
+}
+.social-flat .blog:hover {
+  background-color: #40d47f;
+}
+.social-flat .bottom-right {
+  font-size: 14px;
+  line-height: 12px;
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+@media screen and (max-width: 480px) {
+  .social-flat ul li {
+    width: 95%;
+  }
+}
+/* Author Card */
+.author-card {
+  font-family: 'Josefin Sans', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  background-color: #fdfdfd;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 15px 5px;
+  height: 150px;
+  width: 560px;
+  max-width: 95%;
+  overflow: hidden;
+  position: relative;
+}
+.author-card .icon-image {
+  float: left;
+  max-height: 95%;
+}
+.author-card .name {
+  font-size: 48px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+.author-card .description {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  font-style: italic;
+  color: #7f8c8d;
+}
+.author-card .card-left {
+  float: left;
+}
+.author-card .card-right {
+  margin-left: 150px;
+  margin-right: 30px;
+  max-height: 80%;
+}
+@media screen and (max-width: 480px) {
+  .author-card {
+    height: 100px;
+  }
+  .author-card .icon-image {
+    width: 80px;
+  }
+  .author-card .name {
+    font-size: 28px;
+    margin-top: 25px;
+  }
+  .author-card .description {
+    font-size: 12px;
+  }
+  .author-card .card-right {
+    margin-left: 90px;
+    margin-right: 10px;
+  }
+}

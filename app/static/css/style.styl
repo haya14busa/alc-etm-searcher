@@ -53,3 +53,110 @@ textarea
 .btn-shadow
   box-shadow: 0 1px 3px rgba(0, 0, 0, .15)
 
+
+/* Social Flat */
+.social-flat
+  font-family: 'Josefin Sans', sans-serif
+  &:after
+    content: "."
+    display: block
+    height: 0
+    font-size:0
+    clear: both
+    visibility:hidden
+  ul
+    list-style:none
+    margin:0
+    padding:0
+    li
+      display:block
+      width: 180px
+      height: 90px
+      float:left
+      margin: 5px
+      padding: 5px
+      border-radius: 3px
+      color: #f8f8f8
+      position: relative
+      a
+        text-decoration: none
+        display:block
+        text-align: center
+        line-height: 80px
+        color: #f8f8f8
+        font-size: 26px
+  .icon
+    background-color: #2c3e50
+    &:hover
+      background-color: lighten(#2c3e50, 10%)
+  .github
+    background-color: #2c3e50
+    &:hover
+      background-color: lighten(#2c3e50, 10%)
+  .twitter
+    background-color: #3498db
+    &:hover
+      background-color: lighten(#3498db, 10%)
+  .blog
+    background-color: #2ecc71
+    &:hover
+      background-color: lighten(#2ecc71, 10%)
+  .bottom-right
+    font-size: 14px
+    line-height:12px
+    position: absolute
+    bottom: 7px
+    right: 7px
+@media screen and (max-width: 480px)
+  .social-flat
+    ul
+      li
+        width: 95%
+
+/* Author Card */
+.author-card
+  font-family: 'Josefin Sans', sans-serif
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .15)
+  background-color: #fdfdfd
+  border-radius: 5px
+  padding: 5px
+  margin: 15px 5px
+  height: 150px
+  width: 560px
+  max-width: 95%
+  overflow: hidden
+  position: relative
+  .icon-image
+    float: left
+    max-height: 95%
+  .name
+    font-size: 48px
+    font-style: italic
+    text-align: center
+    margin-top: 40px
+  .description
+    position: absolute
+    bottom: 7px
+    right: 7px
+    font-style: italic
+    color: #7f8c8d
+  .card-left
+    float: left
+  .card-right
+    margin-left: 150px
+    margin-right: 30px
+    max-height:80%
+
+@media screen and (max-width: 480px)
+  .author-card
+    height: 100px
+    .icon-image
+      width: 80px
+    .name
+      font-size: 28px
+      margin-top: 25px
+    .description
+      font-size: 12px
+    .card-right
+      margin-left: 90px
+      margin-right: 10px

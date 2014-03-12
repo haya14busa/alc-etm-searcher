@@ -70,14 +70,29 @@ View on GitHub
 
 当サイトが使用しているコードは[GitHub](https://github.com/)に上がっています。
 
-Fork me on GitHub!: [haya14busa/alc-etm-searcher](https://github.com/haya14busa/alc-etm-searcher)
+Fork me on GitHub: [haya14busa/alc-etm-searcher](https://github.com/haya14busa/alc-etm-searcher)
 
 
 Author
 ------
+<div class="author-card">
+  <div class="card-left">
+    <img class="icon-image" src="https://0.gravatar.com/avatar/dca89778aa3e6bc49f0e100df1a1a1f0?s=120" alt="haya14busa_icon">
+  </div>
+  <div class="card-right">
+    <div class="name">haya14busa</div>
+    <div class="description">V!mm!shment Th!s World!</div>
+  </div>
+</div><!-- /div.author-card -->
 
-haya14busa
+<div class="social-flat">
+  <ul>
+    <li class="github"><a href="https://github.com/haya14busa">GitHub <span class="bottom-right">@haya14busa</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/haya14busa">Twitter <span class="bottom-right">@haya14busa</span></a></li>
+    <li class="blog"><a href="http://haya14busa.com/">Blog <span class="bottom-right">http://haya14busa.com/</span></a></li>
+  </ul>
+</div>
+<br>
 
-- Github: [haya14busa](https://github.com/haya14busa)
-- Twitter: [haya14busa](https://twitter.com/haya14busa)
-- Blog: [haya14busa « haya14busa's memo](http://haya14busa.com/)
+*Please feel free to contact me!*
+
