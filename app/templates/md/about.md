@@ -25,12 +25,19 @@ Link: [アルク語源辞典Searcher](http://alc-etm-searcher.herokuapp.com/)
 (よってまれに全く関係ない単語のページに飛んでしまう場合がありますがご了承ください。)
 
 
-ブックマークレット機能
-----------------------
-
-TODO: あとで実装します。
+ブックマークレット
+------------------
 
 ブックマークレットによってわざわざ当サイトにアクセスせずとも、手軽に検索機能を使うことができるようになります。
+
+<a href="javascript:(function(){var text=encodeURIComponent(window.getSelection());text=(!text)?encodeURIComponent(window.prompt('アルク語源辞典Searcher')):text;if(text=='null'||text=='')return;URL='http://alc-etm-searcher.herokuapp.com/send_word?search_word='+text;window.open(URL,'_blank');})();">アルク語源辞典SearcherBookMarklet</a>
+
+上記リンクをブックマークバーにドラッグ&ドロップして登録してください。
+
+またはこの<a href="http://alc-etm-searcher.herokuapp.com/about?javascript:(function(){var text=encodeURIComponent(window.getSelection());text=(!text)?encodeURIComponent(window.prompt('アルク語源辞典Searcher')):text;if(text=='null'||text=='')return;URL='http://alc-etm-searcher.herokuapp.com/send_word?search_word='+text;window.open(URL,'_blank');})();">リンク</a>にアクセスし(ページは変わりません)、ブックマークに登録したあと、URL内の`?javascript:`の`?`以前を削除してください。
+
+### 使い方
+ブックマークにおいておけば、他のサイトでも好きなときにクリックすることで検索プロンプトが開き、当サイトのアルク語源辞典Searcherを利用することが出来ます。また、事前に調べたい単語を選択した状態でクリックすると、その単語を検索語として検索を実行します。
 
 
 一括テキストリンカー
@@ -49,8 +56,16 @@ Link: [アルク語源辞典テキストリンカー](http://alc-etm-searcher.he
 そこで当サイトの[アルク語源辞典テキストリンカー](http://alc-etm-searcher.herokuapp.com/text_linker)を利用して学習したい英文を入力すれば、予め一括で語源辞典のデータベースにマッチする単語だけをリンクすることができ、辞書を引く時間を大幅に時間を短縮しながら学習することが出来ます。
 
 
+View on GitHub
+--------------
+
+当サイトが使用しているコードは[GitHub](https://github.com/)に上がっています。
+
+Fork me on GitHub!: [haya14busa/alc-etm-searcher](https://github.com/haya14busa/alc-etm-searcher)
+
+
 Author
-----------------
+------
 
 haya14busa
 

@@ -1,0 +1,1 @@
+javascript:(function(){var text=encodeURIComponent(window.getSelection());text=(!text)?encodeURIComponent(window.prompt('アルク語源辞典Searcher')):text;if(text=='null'||text=='')return;URL='http://alc-etm-searcher.herokuapp.com/send_word?search_word='+text;window.open(URL,'_blank');})();
