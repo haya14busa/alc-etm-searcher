@@ -77,7 +77,7 @@ Author
 ------
 <div class="author-card">
   <div class="card-left">
-    <img class="icon-image" src="https://0.gravatar.com/avatar/dca89778aa3e6bc49f0e100df1a1a1f0?s=120" alt="haya14busa_icon">
+    <img class="icon-image" src="https://0.gravatar.com/avatar/dca89778aa3e6bc49f0e100df1a1a1f0?s=240" alt="haya14busa_icon" style="width:130px; height:130px;">
   </div>
   <div class="card-right">
     <div class="name">haya14busa</div>
